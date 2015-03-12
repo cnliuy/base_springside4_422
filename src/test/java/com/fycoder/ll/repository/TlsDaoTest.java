@@ -34,7 +34,7 @@ public class TlsDaoTest extends SpringTransactionalTestCase {
 		Page<Tls> tls = tlsDao.findByTablenameid("1", new PageRequest(0, 100, Direction.ASC, "id"));
 		
 		//assertThat(tls.size()).isEqualTo(0);
-		assertThat(tls.getContent()).hasSize(5);
+		assertThat(tls.getContent()).hasSize(1);
 		//assertThat(tls.getContent().get(0).getId()).isEqualTo(1);
 
 //		tls = tlsDao.findByUserId(99999L, new PageRequest(0, 100, Direction.ASC, "id"));
