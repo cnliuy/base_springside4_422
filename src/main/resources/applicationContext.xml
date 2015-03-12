@@ -30,7 +30,7 @@
 				<!-- 命名规则 My_NAME->MyName -->
 				<prop key="hibernate.ejb.naming_strategy">org.hibernate.cfg.ImprovedNamingStrategy</prop>
 				<!-- ***liuy add***  控制数据库更新形势等-->
-				<prop key="hibernate.hbm2ddl.auto">update</prop>
+				<prop key="hibernate.hbm2ddl.auto">create</prop>
 				<prop key="hibernate.dialect">org.hibernate.dialect.PostgreSQLDialect</prop>
 				<!-- 
 				<prop key="hibernate.hbm2ddl.auto">update</prop>
@@ -38,6 +38,10 @@
 				 -->				 
 			</props>         
 		</property>
+		
+		<!-- 
+		<property name="mappingResources" value="Dytable.hbm.xml"/>
+		-->
 	</bean>
 	
 	<bean id="hibernateJpaVendorAdapter" class="org.springframework.orm.jpa.vendor.HibernateJpaVendorAdapter">
@@ -62,6 +66,8 @@
 
 	<!-- JSR303 Validator定义 -->
  	<bean id="validator" class="org.springframework.validation.beanvalidation.LocalValidatorFactoryBean" />
+ 	
+
 	
 	<!-- production环境 -->
 	<!-- be 1

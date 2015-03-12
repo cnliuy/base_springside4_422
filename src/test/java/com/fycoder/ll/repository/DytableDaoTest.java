@@ -1,7 +1,7 @@
 /*******************************************************************************
- * Copyright (c) 2005, 2014 springside.github.io
- *
- * Licensed under the Apache License, Version 2.0 (the "License");
+ *  
+ * mytestclass
+ * 
  *******************************************************************************/
 package com.fycoder.ll.repository;
 
@@ -13,26 +13,23 @@ import org.springframework.data.domain.Page;
 import org.springframework.data.domain.PageRequest;
 import org.springframework.data.domain.Sort.Direction;
 import org.springframework.test.context.ContextConfiguration;
-
-
 import com.fycoder.ll.entity.Task;
-
 import org.springside.modules.test.spring.SpringTransactionalTestCase;
 
 @ContextConfiguration(locations = { "/applicationContext.xml" })
-public class TaskDaoTest extends SpringTransactionalTestCase {
+public class DytableDaoTest extends SpringTransactionalTestCase {
 
 	@Autowired
-	private TaskDao taskDao;
+	private DytableDaoImpl dytableDaoImpl;
 
 	@Test
 	public void findTasksByUserId() throws Exception {
-		Page<Task> tasks = taskDao.findByUserId(2L, new PageRequest(0, 100, Direction.ASC, "id"));
-		assertThat(tasks.getContent()).hasSize(5);
-		assertThat(tasks.getContent().get(0).getId()).isEqualTo(1);
-
-		tasks = taskDao.findByUserId(99999L, new PageRequest(0, 100, Direction.ASC, "id"));
-		assertThat(tasks.getContent()).isEmpty();
-		assertThat(tasks.getContent()).isEmpty();
+		int  a= 0 ;
+		for(int i = 0 ;i<1000000 ;i++){
+			a = dytableDaoImpl.mmmmAll();
+			System.out.println(i);
+		}
+		assertThat(a).isEqualTo(5);
+		
 	}
 }

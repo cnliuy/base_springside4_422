@@ -1,0 +1,33 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+
+<hibernate-mapping>
+	<!-- 
+    <class name="com.fycoder.ll.dyentity.DytableTemplet" table="DYTABLE">
+     -->
+    <class name="com.fycoder.ll.dyentity.DytableTemplet">
+        <id name="dyid" type="java.lang.Long">
+            <column name="DYID" />
+            <generator class="sequence" />
+        </id>
+        <property name="tableNameid" type="java.lang.String">
+            <column name="TABLENAMEID" />
+        </property>
+        <property name="tableType" type="int">
+            <column name="TABLETYPE" />
+        </property>
+        <property name="tcolumnId" type="java.lang.String">
+            <column name="TCOLUMNID" />
+        </property>
+        <property name="tcolumnType" type="java.lang.String">
+            <column name="TCOLUMNTYPE" />
+        </property>
+        <property name="tlineId" type="java.lang.String">
+            <column name="TLINEID" />
+        </property>
+        <property name="tlineValue" type="java.lang.String">
+            <column name="TLINEVALUE" />
+        </property>
+    </class>
+</hibernate-mapping>
