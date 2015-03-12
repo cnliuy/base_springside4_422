@@ -20,10 +20,12 @@ import org.springframework.data.jpa.domain.Specification;
 import org.springframework.stereotype.Component;
 import org.springframework.transaction.annotation.Transactional;
 
+import com.fycoder.ll.dyentity.RooTlsoooUse;
 import com.fycoder.ll.dyentity.Tls;
 import com.fycoder.ll.entity.Task;
 import com.fycoder.ll.repository.DytableDao;
 import com.fycoder.ll.repository.DytableDaoImpl;
+import com.fycoder.ll.repository.RooTlsoooUseDao;
 import com.fycoder.ll.repository.TaskDao;
 import com.fycoder.ll.repository.TlsDao;
 
@@ -41,6 +43,9 @@ public class TlsService {
 	
 	@Autowired
 	private TlsDao tlsDao;
+	
+	@Autowired
+	private RooTlsoooUseDao rooTlsoooUseDao;
 
 //	@Test
 //	public void findTasksByUserId() throws Exception {
@@ -59,8 +64,16 @@ public class TlsService {
 
 	public void setTlsDao(TlsDao tlsDao) {
 		this.tlsDao = tlsDao;
+	}	
+	
+
+	public RooTlsoooUseDao getRooTlsoooUseDao() {
+		return rooTlsoooUseDao;
 	}
 
+	public void setRooTlsoooUseDao(RooTlsoooUseDao rooTlsoooUseDao) {
+		this.rooTlsoooUseDao = rooTlsoooUseDao;
+	}
 
 	public Tls getTls(Long id) {
 		return tlsDao.findOne(id);
@@ -81,12 +94,17 @@ public class TlsService {
 	public Page<Tls> getUserTls(Long userId, int pageNumber, int pageSize,
 			String sortType) {
 		//param : Map<String, Object> searchParams
+		String useids = userId.toString();
+		List <RooTlsoooUse> ru = rooTlsoooUseDao.findByUseid(useids);		
+		String tablenameid_charset = "1";
 		PageRequest pageRequest = buildPageRequest(pageNumber, pageSize, sortType);
+		Page<Tls> tlsp=  tlsDao.findByTablenameid(tablenameid_charset,pageRequest);
+		
 		//Specification<Tls> spec = buildSpecification(userId, searchParams);		
 		//select h from Hytxbz as h,Tgbzk as t where h.hytxbzid=t.hytxbzid and t.bztgid=:bztgid
 		//return tlsDao.findAll(spec, pageRequest);
 		//return tlsDao.findByUserId(userId,pageRequest);	
-		return  null ;
+		return  tlsp ;
 	}
 	
 
@@ -97,8 +115,8 @@ public class TlsService {
 		Sort sort = null;
 		if ("auto".equals(sortType)) {
 			sort = new Sort(Direction.DESC, "id");
-		} else if ("title".equals(sortType)) {
-			sort = new Sort(Direction.ASC, "title");
+		} else if ("tablename".equals(sortType)) {
+			sort = new Sort(Direction.ASC, "tablename");
 		}
 
 		return new PageRequest(pageNumber - 1, pagzSize, sort);

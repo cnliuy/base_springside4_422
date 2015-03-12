@@ -5,6 +5,8 @@
  *******************************************************************************/
 package com.fycoder.ll.repository;
 
+import java.util.List;
+
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
 import org.springframework.data.jpa.repository.JpaSpecificationExecutor;
@@ -22,4 +24,7 @@ public interface RooTlsoooUseDao extends PagingAndSortingRepository<RooTlsoooUse
 	//	@Modifying
 	//	@Query("delete from Tl_Use tu where tu.useid=?1")
 	//	void deleteByUserId(Long id);
+	
+	//liuy add
+	List <RooTlsoooUse> findByUseid(String useid );
 }

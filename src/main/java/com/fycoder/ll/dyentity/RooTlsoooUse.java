@@ -15,7 +15,7 @@ public class RooTlsoooUse extends IdEntity {
 	
 	private String  tablenameid; // Tls对象的
 	
-	private Long  useid; // Use对象的
+	private String  useid; // Use对象的
 	
 
 	
@@ -27,13 +27,15 @@ public class RooTlsoooUse extends IdEntity {
 		this.tablenameid = tablenameid;
 	}
 
-	public Long getUseid() {
+	public String getUseid() {
 		return useid;
 	}
-	
-	public void setUseid(Long useid) {
+
+	public void setUseid(String useid) {
 		this.useid = useid;
 	}
+
+
 	
 	
 }
