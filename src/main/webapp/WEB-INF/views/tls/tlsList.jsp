@@ -5,7 +5,7 @@
 
 <html>
 <head>
-	<title>动态模板管理</title>
+	<title>动态表单模板管理</title>
 </head>
 
 <body>
@@ -22,7 +22,7 @@
 	</div>
 	
 	<table id="contentTable" class="table table-striped table-bordered table-condensed">
-		<thead><tr><th>任务</th><th>管理</th></tr></thead>
+		<thead><tr><th>表单模板</th><th>管理</th></tr></thead>
 		<tbody>
 		<c:forEach items="${tlss.content}" var="tls">
 			<tr>
@@ -33,7 +33,9 @@
 		</tbody>
 	</table>
 	
+	<tags:pagination page="${tlss}" paginationSize="5"/>
 
+	<div><a class="btn" href="${ctx}/tls/create">创建表单模板</a></div>
 
 
 </body>

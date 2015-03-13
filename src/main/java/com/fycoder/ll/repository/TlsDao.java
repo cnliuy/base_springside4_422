@@ -56,9 +56,15 @@ public interface TlsDao extends PagingAndSortingRepository <Tls, Long> , JpaSpec
 	 *  findByTablenameidIn
 	 *  
 	 * */	
-	//@Query(value="select tls  from Tls  as tls  where  tls.tablenameid = :nn ")
-	@Query("select tls from Tls as tls where tls.tablenameid = ?1 ")
-	Page<Tls> findByTablenameid(String tablenameid_charset,Pageable pageRequest );
+	
+	////@Query(value="select tls  from Tls  as tls  where  tls.tablenameid = :nn ")
+	//@Query("select tls from Tls as tls where tls.tablenameid =?1 ")
+	//Page<Tls> findByTablenameid(String tablenameid_charset,Pageable pageRequest );
+	
+	
+	//--空置报错  @Query("select tls from Tls as tls where tls.id in ?1 ")
+	Page<Tls> findByIdIn(List <Long> tablenameid_charset,Pageable pageRequest );
+	
 	//Page<Tls> findByTablenameid(@Param String tablenameid_charset,Pageable pageRequest );
 	
 

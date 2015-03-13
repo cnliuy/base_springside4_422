@@ -37,5 +37,7 @@
 	<tags:pagination page="${tasks}" paginationSize="5"/>
 
 	<div><a class="btn" href="${ctx}/task/create">创建任务</a></div>
+	<br>
+    <div><a class="btn" href="${ctx}/tls">表单模板列表</a></div>
 </body>
 </html>

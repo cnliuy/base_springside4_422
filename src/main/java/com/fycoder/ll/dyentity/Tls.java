@@ -28,24 +28,24 @@ import com.google.common.collect.ImmutableList;
 public class Tls extends IdEntity {
 	
 	private String tablename;
-	private String tablenameid; //唯一值	
+	//private String tablenameid; //唯一值	
 	private int tabletype;//表的值     1 正式表 ， 2 选项表 
 	private String tablenameremark;
 	private int tablebakcol1;
 	private int tablebakcol2;
 	private String tablebakcol3;
 	private String tablebakcol4;
-	@GeneratedValue(strategy = GenerationType.IDENTITY)
-	private String tcolumnid;	
-	private String tcolumnname;
-	private String tcolumntype; 
-	private String tcolumndefvalue;
-	private String tcolumnisnull;
-	private String tcolumnremark;
-	private int    tcolbak1;
-	private int    tcolbak2;
-	private String	tcolbak3;
-	private String	tcolbak4;
+//	@GeneratedValue(strategy = GenerationType.IDENTITY)
+//	private String tcolumnid;	
+//	private String tcolumnname;
+//	private String tcolumntype; 
+//	private String tcolumndefvalue;
+//	private String tcolumnisnull;
+//	private String tcolumnremark;
+//	private int    tcolbak1;
+//	private int    tcolbak2;
+//	private String	tcolbak3;
+//	private String	tcolbak4;
 	
 	public Tls() {
 	}
@@ -68,13 +68,13 @@ public class Tls extends IdEntity {
 //		return tableType;
 //	}
 
-	public String getTablenameid() {
-		return tablenameid;
-	}
-
-	public void setTablenameid(String tablenameid) {
-		this.tablenameid = tablenameid;
-	}
+//	public String getTablenameid() {
+//		return tablenameid;
+//	}
+//
+//	public void setTablenameid(String tablenameid) {
+//		this.tablenameid = tablenameid;
+//	}
 
 	public String getTablename() {
 		return tablename;
@@ -132,86 +132,7 @@ public class Tls extends IdEntity {
 		this.tablebakcol4 = tablebakcol4;
 	}
 
-	public String getTcolumnid() {
-		return tcolumnid;
-	}
 
-	public void setTcolumnid(String tcolumnid) {
-		this.tcolumnid = tcolumnid;
-	}
-
-	public String getTcolumnname() {
-		return tcolumnname;
-	}
-
-	public void setTcolumnname(String tcolumnname) {
-		this.tcolumnname = tcolumnname;
-	}
-
-	public String getTcolumntype() {
-		return tcolumntype;
-	}
-
-	public void setTcolumntype(String tcolumntype) {
-		this.tcolumntype = tcolumntype;
-	}
-
-	public String getTcolumndefvalue() {
-		return tcolumndefvalue;
-	}
-
-	public void setTcolumndefvalue(String tcolumndefvalue) {
-		this.tcolumndefvalue = tcolumndefvalue;
-	}
-
-	public String getTcolumnisnull() {
-		return tcolumnisnull;
-	}
-
-	public void setTcolumnisnull(String tcolumnisnull) {
-		this.tcolumnisnull = tcolumnisnull;
-	}
-
-	public String getTcolumnremark() {
-		return tcolumnremark;
-	}
-
-	public void setTcolumnremark(String tcolumnremark) {
-		this.tcolumnremark = tcolumnremark;
-	}
-
-	public int getTcolbak1() {
-		return tcolbak1;
-	}
-
-	public void setTcolbak1(int tcolbak1) {
-		this.tcolbak1 = tcolbak1;
-	}
-
-	public int getTcolbak2() {
-		return tcolbak2;
-	}
-
-	public void setTcolbak2(int tcolbak2) {
-		this.tcolbak2 = tcolbak2;
-	}
-
-	public String getTcolbak3() {
-		return tcolbak3;
-	}
-
-	public void setTcolbak3(String tcolbak3) {
-		this.tcolbak3 = tcolbak3;
-	}
-
-	public String getTcolbak4() {
-		return tcolbak4;
-	}
-
-	public void setTcolbak4(String tcolbak4) {
-		this.tcolbak4 = tcolbak4;
-	}
-	
 	
 	
 }

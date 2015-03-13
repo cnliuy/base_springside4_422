@@ -25,6 +25,7 @@ public interface RooTlsoooUseDao extends PagingAndSortingRepository<RooTlsoooUse
 	//	@Query("delete from Tl_Use tu where tu.useid=?1")
 	//	void deleteByUserId(Long id);
 	
-	//liuy add
-	List <RooTlsoooUse> findByUseid(String useid );
+	//liuy add   
+	//   属性  Useid
+	List <RooTlsoooUse> findByUseid(Long useid );
 }

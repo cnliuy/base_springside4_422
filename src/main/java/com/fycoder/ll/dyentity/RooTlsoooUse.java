@@ -13,29 +13,24 @@ import com.fycoder.ll.entity.IdEntity;
 @Table(name = "r_tls_use")
 public class RooTlsoooUse extends IdEntity {
 	
-	private String  tablenameid; // Tls对象的
+	private Long  tlsid; // Tls对象的
 	
-	private String  useid; // Use对象的
-	
+	private Long  useid; // Use对象的
 
-	
-	public String getTablenameid() {
-		return tablenameid;
+	public Long getTlsid() {
+		return tlsid;
 	}
 
-	public void setTablenameid(String tablenameid) {
-		this.tablenameid = tablenameid;
+	public void setTlsid(Long tlsid) {
+		this.tlsid = tlsid;
 	}
 
-	public String getUseid() {
+	public Long getUseid() {
 		return useid;
 	}
 
-	public void setUseid(String useid) {
+	public void setUseid(Long useid) {
 		this.useid = useid;
 	}
-
-
-	
 	
 }

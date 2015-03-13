@@ -7,6 +7,7 @@ package com.fycoder.ll.service.tls;
 
 import static org.assertj.core.api.Assertions.assertThat;
 
+import java.util.ArrayList;
 import java.util.List;
 import java.util.Map;
 
@@ -81,7 +82,7 @@ public class TlsService {
 
 	public void saveTls(Tls entity) {
 		tlsDao.save(entity);
-	}
+	}	
 
 	public void deleteTls(Long id) {
 		tlsDao.delete(id);
@@ -91,20 +92,46 @@ public class TlsService {
 		return (List<Tls>) tlsDao.findAll();
 	}
 
+	/**
+	 * 得到用户对应的 Tls对象
+	 * 
+	 * */
 	public Page<Tls> getUserTls(Long userId, int pageNumber, int pageSize,
 			String sortType) {
 		//param : Map<String, Object> searchParams
-		String useids = userId.toString();
-		List <RooTlsoooUse> ru = rooTlsoooUseDao.findByUseid(useids);		
-		String tablenameid_charset = "1";
+		List <RooTlsoooUse> ru = rooTlsoooUseDao.findByUseid(userId);	
+		List <Long> tablenameid_charset = new ArrayList<Long>();
+		if(ru.size()== 0){
+			//没有返回值
+			tablenameid_charset.add(0L);  
+		}else{
+		    for (RooTlsoooUse R_t_u:ru){   
+		    	tablenameid_charset.add( R_t_u.getTlsid());
+		    } 
+		}
 		PageRequest pageRequest = buildPageRequest(pageNumber, pageSize, sortType);
-		Page<Tls> tlsp=  tlsDao.findByTablenameid(tablenameid_charset,pageRequest);
 		
+		Page <Tls> tlsp=  tlsDao.findByIdIn(tablenameid_charset,pageRequest);
+
 		//Specification<Tls> spec = buildSpecification(userId, searchParams);		
 		//select h from Hytxbz as h,Tgbzk as t where h.hytxbzid=t.hytxbzid and t.bztgid=:bztgid
 		//return tlsDao.findAll(spec, pageRequest);
 		//return tlsDao.findByUserId(userId,pageRequest);	
 		return  tlsp ;
+	}
+	
+	/**
+	 * new Tls 方法
+	 * 
+	 *	 创建 Tls对象 同时创建RooTlsoooUse关系对象
+	 * 
+	 * */
+	public void saveTls(Long userID,Tls entity) {		
+		Long tlsId = tlsDao.save(entity).getId();		
+		RooTlsoooUse rtu = new RooTlsoooUse();
+		rtu.setTlsid(tlsId);
+		rtu.setUseid(userID);		
+		rooTlsoooUseDao.save(rtu);		
 	}
 	
 

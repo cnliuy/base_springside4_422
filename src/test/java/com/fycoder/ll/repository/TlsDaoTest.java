@@ -7,6 +7,7 @@ package com.fycoder.ll.repository;
 
 import static org.assertj.core.api.Assertions.*;
 
+import java.util.ArrayList;
 import java.util.List;
 
 import org.junit.Test;
@@ -31,7 +32,11 @@ public class TlsDaoTest extends SpringTransactionalTestCase {
 		
 		//Page<Tls> tls = tlsDao.findByTableNameid(2L, new PageRequest(0, 100, Direction.ASC, "id"));
 		//Page<Tls> tls = tlsDao.findByTableNameid();
-		Page<Tls> tls = tlsDao.findByTablenameid("1", new PageRequest(0, 100, Direction.ASC, "id"));
+		List <Long> s= new ArrayList<Long>();
+		s.add(0L);
+		//s.add(2L);
+		Page<Tls> tls = tlsDao.findByIdIn(s, new PageRequest(0, 100, Direction.ASC, "id"));
+		System.out.println("111");
 		
 		//assertThat(tls.size()).isEqualTo(0);
 		assertThat(tls.getContent()).hasSize(1);

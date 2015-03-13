@@ -84,22 +84,24 @@ public class TlsController {
 		return "tls/tlsList";
 	}
 
-//	@RequestMapping(value = "create", method = RequestMethod.GET)
-//	public String createForm(Model model) {
-//		model.addAttribute("task", new Task());
-//		model.addAttribute("action", "create");
-//		return "tls/tlsForm";
-//	}
-//
-//	@RequestMapping(value = "create", method = RequestMethod.POST)
-//	public String create(@Valid Task newTask, RedirectAttributes redirectAttributes) {
-//		User user = new User(getCurrentUserId());
-//		newTask.setUser(user);
-//
-//		//tlsService.saveTask(newTask);
-//		redirectAttributes.addFlashAttribute("message", "创建任务成功");
-//		return "redirect:/tls/";
-//	}
+	//导向到此页   通过Get
+	@RequestMapping(value = "create", method = RequestMethod.GET)
+	public String createForm(Model model) {
+		System.out.println("---------tls--------create----Get");
+		model.addAttribute("tls", new Tls());
+		model.addAttribute("action", "create");
+		return "tls/tlsForm";
+	}
+
+	//通过Post 导向到此页  
+	@RequestMapping(value="create", method = RequestMethod.POST)
+	public String create(@Valid Tls newTls, RedirectAttributes redirectAttributes) {
+		System.out.println("---------tls--------create----Post");
+		User user = new User(getCurrentUserId());
+		tlsService.saveTls(user.getId(),newTls);
+		redirectAttributes.addFlashAttribute("message", "创建表单模板成功");
+		return "redirect:/tls/";
+	}
 //
 //	@RequestMapping(value = "update/{id}", method = RequestMethod.GET)
 //	public String updateForm(@PathVariable("id") Long id, Model model) {

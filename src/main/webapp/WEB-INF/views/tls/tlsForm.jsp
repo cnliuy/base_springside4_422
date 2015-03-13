@@ -7,20 +7,26 @@
 </head>
 
 <body>
-	<form id="inputForm" action="${ctx}/task/${action}" method="post" class="form-horizontal">
-		<input type="hidden" name="id" value="${task.id}"/>
+	<form id="inputForm" action="${ctx}/tls/${action}" method="post" class="form-horizontal">
+		<input type="hidden" name="id" value="${tls.id}"/>
 		<fieldset>
-			<legend><small>动态模板任务</small></legend>
+		<legend><small>表单模板管理</small></legend>
 			<div class="control-group">
-				<label for="task_title" class="control-label">动态模板名称:</label>
+				<label for="task_title" class="control-label">表单模板名称:</label>
 				<div class="controls">
-					<input type="text" id="task_title" name="title"  value="${task.title}" class="input-large required" minlength="3"/>
+					<input type="text" id="task_title" name="tablename"  value="${tls.tablename}" class="input-large required" minlength="3"/>
 				</div>
 			</div>	
 			<div class="control-group">
-				<label for="description" class="control-label">动态模板描述:</label>
+				<label for="description" class="control-label">表单模板类型:</label>
 				<div class="controls">
-					<textarea id="description" name="description" class="input-large">${task.description}</textarea>
+					<input type="text" id="task_tabletype" name="tabletype"  value="${tls.tabletype}"  class="input-large required" minlength="3"/>
+				</div>
+			</div>	
+			<div class="control-group">
+				<label for="description" class="control-label">表单模板备注:</label>
+				<div class="controls">
+					<textarea id="description" name="tablenameremark" class="input-large">${tls.tablenameremark}</textarea>
 				</div>
 			</div>	
 			<div class="form-actions">
