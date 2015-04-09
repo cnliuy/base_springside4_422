@@ -77,7 +77,7 @@ https://github.com/springside/springside4/releases/tag/v4.2.2.GA
 	</bean>
 	
 5.AOP配置Ok
-    调整 yste\src\main\webapp\WEB-INF\spring-mvc.xml （负责链接处）这个文件，加入
+    a.调整 yste\src\main\webapp\WEB-INF\spring-mvc.xml （负责链接处）这个文件，加入
         xmlns:aop="http://www.springframework.org/schema/aop"
         ...
         http://www.springframework.org/schema/aop  http://www.springframework.org/schema/aop/spring-aop-4.0.xsd">
@@ -86,7 +86,7 @@ https://github.com/springside/springside4/releases/tag/v4.2.2.GA
         <!-- <aop:aspectj-autoproxy /> -->
         <aop:aspectj-autoproxy proxy-target-class="true"/>
         
-    调整 yste\src\main\resources\applicationContext.xml （负责后面的类mvc的m和c）文件，加入
+    b.调整 yste\src\main\resources\applicationContext.xml （负责后面的类mvc的m和c）文件，加入
        <!-- 使用注解配置切面  add-->
        <!-- <aop:aspectj-autoproxy /> -->
        <aop:aspectj-autoproxy proxy-target-class="true"/>
