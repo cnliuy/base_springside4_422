@@ -424,6 +424,7 @@
 				<artifactId>build-helper-maven-plugin</artifactId>
 				<version>1.8</version>
 				<executions>
+					<!-- 
 					<execution>
 						<id>add-functional-source</id>
 						<phase>generate-sources</phase>
@@ -436,6 +437,7 @@
 							</sources>
 						</configuration>
 					</execution>
+					 -->
 				</executions>
 			</plugin>
 

@@ -76,6 +76,6 @@ https://github.com/springside/springside4/releases/tag/v4.2.2.GA
 		<property name="showSql" value="true" />       
 	</bean>
 	
-5.
+5.AOP配置还有问题
 	         
 
