@@ -21,7 +21,7 @@
 		<context:exclude-filter type="annotation" expression="org.springframework.stereotype.Controller"/>
 		<context:exclude-filter type="annotation" expression="org.springframework.web.bind.annotation.ControllerAdvice"/>
 	</context:component-scan>
-	<!-- 使用注解配置切面 -->
+	<!-- 使用注解配置切面 add -->
     <!-- <aop:aspectj-autoproxy /> -->
     <aop:aspectj-autoproxy proxy-target-class="true"/>
 

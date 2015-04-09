@@ -25,6 +25,7 @@ public class LoginController {
 
 	@RequestMapping(method = RequestMethod.GET)
 	public String login() {
+		System.out.println("in ----login-----");
 		return "account/login";
 	}
 
